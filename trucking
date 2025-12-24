@@ -163,7 +163,7 @@
         <h1>Website Information Form</h1>
         <p class="subtitle">Please fill out this form to help us build your website</p>
         
-        <form id="websiteForm" action="https://formspree.io/f/xzdpwpln" method="POST" enctype="multipart/form-data">
+        <form id="websiteForm" action="https://formspree.io/f/mzdpwbvq" method="POST" enctype="multipart/form-data">
             
             <!-- Company Basics -->
             <div class="section">
