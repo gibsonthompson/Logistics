@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Information Form - Trucking Consulting Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
+        }
+        
+        h1 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #718096;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #1e40af;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            color: #2d3748;
+            font-weight: 500;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #1e40af;
+        }
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        
+        .file-upload-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        input[type="file"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px dashed #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            cursor: pointer;
+            background: #f7fafc;
+            transition: border-color 0.3s, background 0.3s;
+        }
+        
+        input[type="file"]:hover {
+            border-color: #1e40af;
+            background: #eff6ff;
+        }
+        
+        input[type="file"]:focus {
+            outline: none;
+            border-color: #1e40af;
+            background: #eff6ff;
+        }
+        
+        .helper-text {
+            font-size: 13px;
+            color: #718096;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        button {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Website Information Form</h1>
+        <p class="subtitle">Please fill out this form to help us build your website</p>
+        
+        <form id="websiteForm" action="https://formspree.io/f/xzdpwpln" method="POST" enctype="multipart/form-data">
+            
+            <!-- Company Basics -->
+            <div class="section">
+                <h2 class="section-title">Company Basics</h2>
+                
+                <div class="form-group">
+                    <label for="businessName">Business Name *</label>
+                    <input type="text" id="businessName" name="businessName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="tagline">Tagline</label>
+                    <input type="text" id="tagline" name="tagline" placeholder="Optional - your company's slogan or motto">
+                </div>
+                
+                <div class="form-group">
+                    <label for="locations">Location(s) Served *</label>
+                    <input type="text" id="locations" name="locations" placeholder="e.g., Nationwide, surrounding states, etc." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="companyHistory">Brief Company History *</label>
+                    <textarea id="companyHistory" name="companyHistory" placeholder="2-3 sentences about how/why you started your consulting business" required></textarea>
+                    <p class="helper-text">What inspired you to start? What problem were you solving?</p>
+                </div>
+            </div>
+            
+            <!-- Services & Expertise -->
+            <div class="section">
+                <h2 class="section-title">Services & Expertise</h2>
+                
+                <div class="form-group">
+                    <label for="services">List All Consulting Services You Offer *</label>
+                    <textarea id="services" name="services" placeholder="e.g., Cost reduction strategies, Route optimization, DOT compliance, Fleet management, Technology implementation, etc." required></textarea>
+                    <p class="helper-text">List all services you provide to trucking companies</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="differentiation">What Makes Your Approach Different? *</label>
+                    <textarea id="differentiation" name="differentiation" placeholder="What sets you apart from other logistics consultants?" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="problems">What Specific Problems Do You Solve? *</label>
+                    <textarea id="problems" name="problems" placeholder="e.g., Reducing fuel costs by 15-20%, improving driver retention, streamlining compliance..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="results">Typical Results/ROI Clients Can Expect *</label>
+                    <textarea id="results" name="results" placeholder="e.g., 20% cost reduction within 6 months, 30% improvement in route efficiency..." required></textarea>
+                    <p class="helper-text">Include specific numbers or percentages if possible</p>
+                </div>
+            </div>
+            
+            <!-- Target Client Information -->
+            <div class="section">
+                <h2 class="section-title">Target Client Information</h2>
+                
+                <div class="form-group">
+                    <label for="idealClient">Who Is Your Ideal Client? *</label>
+                    <textarea id="idealClient" name="idealClient" placeholder="e.g., Mid-sized trucking companies with 10-50 trucks, $2M-$10M annual revenue, long-haul freight..." required></textarea>
+                    <p class="helper-text">Fleet size, revenue range, type of freight, etc.</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="industries">Industries You Primarily Serve *</label>
+                    <input type="text" id="industries" name="industries" placeholder="e.g., General freight, refrigerated transport, specialized cargo..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="geographic">Geographic Focus *</label>
+                    <input type="text" id="geographic" name="geographic" placeholder="e.g., Regional (Southeast), National, Specific states..." required>
+                </div>
+            </div>
+            
+            <!-- Value Proposition -->
+            <div class="section">
+                <h2 class="section-title">Value Proposition</h2>
+                
+                <div class="form-group">
+                    <label for="advantages">Your 3-5 Biggest Competitive Advantages *</label>
+                    <textarea id="advantages" name="advantages" placeholder="What are the top reasons clients should choose you?" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="methods">Proprietary Methods, Frameworks, or Technology</label>
+                    <textarea id="methods" name="methods" placeholder="Any unique processes or tools you use? (Optional)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="credentials">Industry Certifications, Credentials, or Affiliations</label>
+                    <textarea id="credentials" name="credentials" placeholder="e.g., DOT certifications, industry associations, professional memberships..."></textarea>
+                </div>
+            </div>
+            
+            <!-- Notable Clients -->
+            <div class="section">
+                <h2 class="section-title">Notable Clients</h2>
+                
+                <div class="form-group">
+                    <label for="notableClients">Notable Clients You Can Mention</label>
+                    <textarea id="notableClients" name="notableClients" placeholder="List any well-known companies you've worked with (if allowed to mention publicly)"></textarea>
+                    <p class="helper-text">Only include if you have permission to use their names</p>
+                </div>
+            </div>
+            
+            <!-- Process -->
+            <div class="section">
+                <h2 class="section-title">Your Process</h2>
+                
+                <div class="form-group">
+                    <label for="process">How Does Your Consulting Engagement Typically Work? *</label>
+                    <textarea id="process" name="process" placeholder="e.g., Initial assessment (2 weeks), Strategy development, Implementation phase, Ongoing support..." required></textarea>
+                    <p class="helper-text">Walk through the typical steps from first contact to results</p>
+                </div>
+            </div>
+            
+            <!-- Contact & Branding -->
+            <div class="section">
+                <h2 class="section-title">Contact & Branding</h2>
+                
+                <div class="form-group">
+                    <label for="email">Primary Contact Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Primary Contact Phone *</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="logo">Upload Logo</label>
+                    <input type="file" id="logo" name="logo" accept=".jpg,.jpeg,.png,.svg,.pdf">
+                    <p class="helper-text">Accepted formats: JPG, PNG, SVG, PDF</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="competitors">Competitor or Example Websites You Like</label>
+                    <textarea id="competitors" name="competitors" placeholder="List any websites (competitors or other industries) whose design/layout you like"></textarea>
+                </div>
+            </div>
+            
+            <button type="submit">Submit Information</button>
+        </form>
+    </div>
+    
+    <script>
+        // Optional: Add confirmation message
+        document.getElementById('websiteForm').addEventListener('submit', function(e) {
+            // Form will submit normally, but you can add custom handling here if needed
+        });
+    </script>
+</body>
+</html>
