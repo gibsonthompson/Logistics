@@ -132,10 +132,12 @@
 <body>
     <div class="container">
         <h1>Website Information Form</h1>
-        <p class="subtitle">Please fill out this form to help us build your website</p>
+        <p class="subtitle">Please fill out this form to help build your website</p>
         
         <form id="websiteForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="f9b4832b-65ec-4141-a2ea-2d9d0557b87e">
+            <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+            <input type="hidden" name="subject" value="New Website Form Submission - Trucking Consulting">
+            <input type="hidden" name="from_name" value="Website Form">
             
             <!-- Company Basics -->
             <div class="section">
@@ -284,9 +286,41 @@
     </div>
     
     <script>
-        // Optional: Add confirmation message
-        document.getElementById('websiteForm').addEventListener('submit', function(e) {
-            // Form will submit normally, but you can add custom handling here if needed
+        const form = document.getElementById('websiteForm');
+        const submitButton = form.querySelector('button[type="submit"]');
+        
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Submitting...';
+            
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Show success message
+                    form.innerHTML = `
+                        <div style="text-align: center; padding: 40px;">
+                            <h2 style="color: #1e40af; margin-bottom: 20px;">✓ Form Submitted Successfully!</h2>
+                            <p style="color: #718096; font-size: 16px;">Thank you! We've received your information and will be in touch soon.</p>
+                        </div>
+                    `;
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                alert('There was an error submitting the form. Please try again or email us directly.');
+                submitButton.disabled = false;
+                submitButton.textContent = 'Submit Information';
+            }
         });
     </script>
 </body>
