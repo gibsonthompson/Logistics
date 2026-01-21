@@ -1,3 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_KEY
+);
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -5,6 +12,36 @@ export default async function handler(req, res) {
 
   try {
     const data = req.body;
+
+    // Save to Supabase
+    const { error: dbError } = await supabase
+      .from('website_form_submissions')
+      .insert({
+        business_name: data.businessName,
+        tagline: data.tagline,
+        locations: data.locations,
+        company_history: data.companyHistory,
+        services: data.services,
+        differentiation: data.differentiation,
+        problems: data.problems,
+        results: data.results,
+        ideal_client: data.idealClient,
+        industries: data.industries,
+        geographic: data.geographic,
+        advantages: data.advantages,
+        methods: data.methods,
+        credentials: data.credentials,
+        notable_clients: data.notableClients,
+        process: data.process,
+        email: data.email,
+        phone: data.phone,
+        logo_info: data.logoInfo,
+        competitors: data.competitors,
+      });
+
+    if (dbError) {
+      console.error('Supabase error:', dbError);
+    }
 
     // Send SMS notification via Telnyx
     await fetch('https://api.telnyx.com/v2/messages', {
@@ -19,8 +56,6 @@ export default async function handler(req, res) {
         text: `New Website Form!\n\nBusiness: ${data.businessName}\nEmail: ${data.email}\nPhone: ${data.phone}\nLocation: ${data.locations}`,
       }),
     });
-
-    console.log('Form submission:', data);
 
     return res.status(200).json({ success: true });
   } catch (error) {
